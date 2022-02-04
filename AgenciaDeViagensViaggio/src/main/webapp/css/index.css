@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.section-banner {
+	position: relative;
+	top: 80px;
+	left: 0;
+}
+
+.section-content {
+	align-items: flex-end;
+}
+
+.card-content {
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	background-color: #fff;
+	box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.66);
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px;
+	width: 250px;
+}
+
+.card-img {
+	max-width: 100%;
+	border-radius: 3px;
+}
+
+.card-legenda {
+	padding: 5px;
+	color: #1F618D;
+	font-size: 1.5em;
+}
+
+.btn-form {
+	padding: 15px 5px;
+	display: flex;
+	justify-content: center;
+}

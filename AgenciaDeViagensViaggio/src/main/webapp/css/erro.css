@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.section-erro {
+	position: relative;
+	top: 80px;
+	left: 0;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+.erro-content {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mensagem {
+	font-size: 1.5em;
+	color: #fff;
+	background-color: rgb(231, 76, 60);
+	text-shadow: 0px 0px 3px rgb(0, 0, 0, 0.3);
+	border-radius: 5px;
+	padding: 5px 20px;
+	text-align: center;
+}
+
+.erro-content a {
+	margin-top: 50px;	
+}

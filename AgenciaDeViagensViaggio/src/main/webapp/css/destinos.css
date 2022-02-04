@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.section-destinos {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: column;
+	flex-wrap: wrap;
+	padding-top: 30px;
+}
+
+.box-btn-create-destino {
+	position: relative;
+	height: 50px;
+	
+}
+
+.card-content {
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	background-color: #fff;
+	box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.66);
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px;
+	width: 250px;
+}
+
+.card-img {
+	max-width: 100%;
+	border-radius: 3px;
+}
+
+.card-legenda {
+	padding: 15px 5px;
+	color: #5757c6;
+	font-weight: bold;
+}
+
+.card-legenda p {
+	text-align: center;	
+}
+
+.btn-form {
+	padding: 15px 5px;
+	display: flex;
+	justify-content: center;
+}
+
+.btn-card {
+	background: #253981;
+}
+
+.btn-card:hover {
+	background: #5870c7;
+}
+
+.box-cards {
+	
+}

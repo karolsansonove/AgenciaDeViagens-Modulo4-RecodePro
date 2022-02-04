@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.header {
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 99;
+	display: flex;
+	justify-content: center;
+	height: 80px;
+	width: 100%;
+	background-color: #fff;
+}
+
+.header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo-img {
+	height: 70px;
+	margin-right: 15px;
+}
+
+.logo span {
+	font-family: 'Zen Tokyo Zoo', cursive;
+	font-size: 1.7em;
+	color: #1F618D;
+}
+
+.menu {
+	display: flex;
+	height: 100%;
+}
+
+.menu-item {
+	display: flex;
+	align-items: center;
+	margin: 0px 10px;
+	list-style: none;
+}
+
+.menu-item-link {
+	padding: 31px 15px;
+	color: #1F618D;
+}
+
+.menu-item-link:hover {
+	padding-bottom: 28px;
+}
+
+.menu-item:hover {
+	border-bottom: 3px solid #3498DB;
+}
