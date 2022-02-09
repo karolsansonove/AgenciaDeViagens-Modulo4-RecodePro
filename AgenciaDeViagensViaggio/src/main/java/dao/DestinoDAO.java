@@ -12,12 +12,13 @@ import factory.ConnectionFactory;
 import models.Destino;
 
 public class DestinoDAO {
+	
+	private static Connection conn = null;
+	private static PreparedStatement ps = null;
+	private static ResultSet rs = null;
 
-	public boolean create(Destino destino) {
+	public static boolean create(Destino destino) {
 		String sql = "insert into Destino(uf, cidade, preco, url_imagem) values(?, ?, ?, ?)";
-
-		Connection conn = null;
-		PreparedStatement ps = null;
 
 		try {
 			conn = ConnectionFactory.createConnection();
@@ -55,12 +56,9 @@ public class DestinoDAO {
 		return false;
 	}
 
-	public Destino readById(int id) {
+	public static Destino readById(int id) {
 		String sql = "select * from destino where id_destino = ?";
 
-		Connection conn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
 		Destino d = new Destino();
 
 		try {
@@ -100,12 +98,9 @@ public class DestinoDAO {
 		return d;
 	}
 
-	public List<Destino> readAll() {
+	public static List<Destino> readAll() {
 		String sql = "select * from destino";
 
-		Connection conn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
 		List<Destino> destinos = new ArrayList<>();
 
 		try {
@@ -147,18 +142,15 @@ public class DestinoDAO {
 		return destinos;
 	}
 
-	public boolean update(Destino destino) {
-		String sql = "UPDATE Destino SET cidade = ?, uf = ?, preco = ?, url_imagem = ? WHERE id_destino = 2";
-		
-		Connection conn = null;
-		PreparedStatement ps = null;
+	public static boolean update(Destino destino) {
+		String sql = "UPDATE Destino SET cidade = ?, uf = ?, preco = ?, url_imagem = ? WHERE id_destino = ?";
 
 		try {
 			conn = ConnectionFactory.createConnection();
 			ps = conn.prepareStatement(sql);
 
 
-			//ps.setInt(5, destino.getId());
+			ps.setInt(5, destino.getId());
 			ps.setString(1, destino.getCidade());
 			ps.setString(2, destino.getUF());
 			ps.setString(3, destino.getPreco());
@@ -190,11 +182,8 @@ public class DestinoDAO {
 		return false;
 	}
 
-	public boolean delete(int id) {
+	public static boolean delete(int id) {
 		String sql = "delete from destino where id_destino = ?";
-		
-		Connection conn = null;
-		PreparedStatement ps = null;
 
 		try {
 			conn = ConnectionFactory.createConnection();

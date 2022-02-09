@@ -29,10 +29,9 @@ public class destinosDetalheController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DestinoDAO destinoDAO = new DestinoDAO();
-		
+
 		int id = Integer.parseInt(request.getParameter("id"));
-		Destino destino = destinoDAO.readById(id);
+		Destino destino = DestinoDAO.readById(id);
 		
 		request.setAttribute("destino", destino);
 		

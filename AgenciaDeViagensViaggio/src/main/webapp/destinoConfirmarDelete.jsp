@@ -22,7 +22,7 @@
 				<div class="box-detalhes">
 					
 					<p class="local">
-						Tem certeza que deseja remover o destino?
+						Tem certeza que deseja excluir?
 					</p>
 					
 					<div class="box-acoes">

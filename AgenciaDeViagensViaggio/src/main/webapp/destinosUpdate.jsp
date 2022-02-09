@@ -17,8 +17,8 @@
 		<img class="banner-img" alt="Banner" src="./img/banner-destinos.jpg">
 		<section class="section-content">
 			<div class="container section-form">
-				<h1>Cadastro de novo destino</h1>
-				<form action="editardestino" method="post" class="formulario">
+				<h1>Atualizar destino</h1>
+				<form action="editardestino?action=post&id=<%= d.getId() %>" method="post" class="formulario">
 				
 					<div class="form-item">
 						<label>Cidade:<span class="campo-required"> *</span></label>
@@ -42,7 +42,7 @@
 					
 					<div class="form-item-btn">
 						<a href="destinosReadController?id=<%=d.getId() %>" class="btn btn-form btn-form-limpar">Cancelar</a>
-						<a href="editardestino?action=post&id=<%= d.getId() %>" class="btn btn-form btn-form-enviar">Atualizar</a>
+						<input type="submit" class="btn btn-form btn-form-enviar" value="Atualizar"/>
 					</div>						
 				</form>
 			</div>

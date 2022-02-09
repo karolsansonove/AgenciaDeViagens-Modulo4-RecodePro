@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DestinoDAO;
+import dao.PromocaoDAO;
 import models.Destino;
+import models.Promocao;
 
 /**
- * Servlet implementation class destinosCreateController
+ * Servlet implementation class promocoesListarController
  */
-@WebServlet("/criar.destino")
-public class destinosCreateController extends HttpServlet {
+@WebServlet("/listarpromocoes")
+public class promocoesListarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public destinosCreateController() {
+    public promocoesListarController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +33,11 @@ public class destinosCreateController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		List<Promocao> promocoes = PromocaoDAO.readAll();
+		request.setAttribute("promocoes", promocoes);
 		
-		Destino destino = new Destino();
-		destino.setUF(request.getParameter("txtUF"));
-		destino.setCidade(request.getParameter("txtCidade"));
-		destino.setPreco(request.getParameter("txtPreco"));
-		destino.setUrlImagem(request.getParameter("txtURL"));
-		
-		if (DestinoDAO.create(destino)) {
-			request.getRequestDispatcher("sucesso.jsp").forward(request, response);
-		} else {
-			request.getRequestDispatcher("erro.jsp").forward(request, response);
-		}		
-		
+		request.getRequestDispatcher("promocoes.jsp").forward(request, response);
 	}
 
 	/**

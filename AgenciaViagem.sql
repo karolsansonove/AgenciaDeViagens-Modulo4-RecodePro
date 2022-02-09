@@ -13,9 +13,7 @@ create table Destino (
 create table Promocao (
 	id_promocao integer primary key auto_increment,
     descricao varchar(100),
-    percetual_desconto decimal(10,2) not null,
-    id_destino integer,
-    foreign key(id_destino) references Destino (id_destino)
+    percentual_desconto decimal(10,2) not null
 );
 
 create table Contato (

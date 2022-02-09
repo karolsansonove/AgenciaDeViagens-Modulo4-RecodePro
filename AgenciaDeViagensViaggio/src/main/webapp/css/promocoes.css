@@ -2,9 +2,17 @@
 
 .section-promocoes {
 	display: flex;
-	justify-content: center;
-	align-items: start;
+	flex-direction: column;
+	justify-content: start;
+	align-items: column;
 	flex-wrap: wrap;
+	padding-top: 30px;
+}
+
+.box-btn-create-promo {
+	position: relative;
+	height: 50px;
+	
 }
 
 .card-content {
@@ -12,13 +20,21 @@
 	justify-content: center;
 }
 
+.box-cards {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
 .card {
 	background-color: #fff;
 	box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.66);
 	border-radius: 5px;
-	padding: 5px;
+	padding: 15px;
 	margin: 10px;
 	width: 250px;
+	color: #5757c6;
+	
 }
 
 .card-img {
@@ -26,18 +42,22 @@
 	border-radius: 3px;
 }
 
-.card-legenda {
-	padding: 15px 5px;
-	color: #5757c6;
+.card-info {
+	padding: 10px;
+}
+
+.card-info p {
+	text-align: center;
+	padding: 5px;
+}
+
+.card-descricao {
+	font-size: 1.5em;
 	font-weight: bold;
 }
 
-.card-legenda p {
-	text-align: center;	
-}
-
 .btn-form {
-	padding: 15px 5px;
+	
 	display: flex;
 	justify-content: center;
 }

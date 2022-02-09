@@ -19,7 +19,7 @@
 					<a class="menu-item-link" href="listardestinos">Destinos</a>
 				</li>
 				<li class="menu-item">
-					<a class="menu-item-link" href="promocoes.jsp">Promoções</a>
+					<a class="menu-item-link" href="listarpromocoes">Promoções</a>
 				</li>
 				<li class="menu-item">
 					<a class="menu-item-link" href="contato.jsp">Contato</a>

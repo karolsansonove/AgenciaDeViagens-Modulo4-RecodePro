@@ -39,9 +39,9 @@
 									R$ <c:out value="${d.preco}"/>
 								</p>
 							</div>
-							<form action="" method="get" class="btn-form">
+							<div class="btn-form">
 								<a href="destinosReadController?id=${d.id}" class="btn btn-card">Ver detalhes</a>
-							</form>
+							</div>
 						</div>
 					</c:forEach>
 					

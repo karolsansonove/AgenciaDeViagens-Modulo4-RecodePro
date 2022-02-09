@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +16,29 @@
 		<img class="banner-img" alt="Banner" src="./img/banner-promocoes.jpg">
 		<section class="section-content">
 			<div class="container section-promocoes">
-				<div class="card">
-					<img class="card-img" src="./img/img-teste.jpg">
-					<div class="card-legenda">
-						<p>Local</p>
-						<p>Descrição</p>
-						<p>0.0%</p>
-					</div>
-					<form action="" method="get" class="btn-form">
-						<input type="submit" value="Ver mais" class="btn btn-card"/>
-					</form>
+				<div class="box-btn-create-promo">
+					<a href="promocoesCreate.jsp" class="btn btn-card">+ Nova promo</a>
+				</div>
+			
+				<div class="box-cards">
+					
+					<c:forEach items="${promocoes}" var="p">
+				
+						<div class="card">
+							<div class="card-info">
+								<p class="card-descricao">
+									<c:out value="${p.descricao}"/>
+								</p>
+								<p>
+									<c:out value="${p.percentDesconto}"/>% de desconto
+								</p>
+							</div>
+							<div class="btn-form">
+								<a href="promocaodetalhes?id=${p.id}" class="btn btn-card">Ver detalhes</a>
+							</div>
+						</div>
+					</c:forEach>
+					
 				</div>
 			</div>
 		</section>

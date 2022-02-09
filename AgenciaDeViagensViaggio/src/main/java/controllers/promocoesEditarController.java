@@ -8,18 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DestinoDAO;
+import dao.PromocaoDAO;
+import models.Destino;
+import models.Promocao;
 
 /**
- * Servlet implementation class destinosDeleteController
+ * Servlet implementation class promocoesEditarController
  */
-@WebServlet("/removerdestino")
-public class destinosDeleteController extends HttpServlet {
+@WebServlet("/editarpromocao")
+public class promocoesEditarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public destinosDeleteController() {
+    public promocoesEditarController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,23 +31,34 @@ public class destinosDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int id = Integer.parseInt(request.getParameter("id"));
 		String action = request.getParameter("action");
+		int id = Integer.parseInt(request.getParameter("id"));
+		Promocao promo = new Promocao();
 		
 		switch (action) {
-			case "confirm":
-				request.setAttribute("id", id);
-				request.getRequestDispatcher("destinoConfirmarDelete.jsp").forward(request, response);
+			case "get":
+				
+				promo = PromocaoDAO.readById(id);
+				request.setAttribute("promo", promo);
+				
+				request.getRequestDispatcher("promocoesUpdate.jsp").forward(request, response);
+				
 				break;
-			case "delete":
-				if (DestinoDAO.delete(id)) {
-					request.getRequestDispatcher("sucesso.jsp").forward(request, response);			
+			case "post":
+				
+				promo.setId(Integer.parseInt(request.getParameter("id")));
+				promo.setDescricao(request.getParameter("txtDescricao"));
+				promo.setPercentDesconto(Double.parseDouble(request.getParameter("txtPercentual")));
+				
+				if (PromocaoDAO.update(promo)) {
+					request.getRequestDispatcher("sucesso.jsp").forward(request, response);
 				} else {
-					request.getRequestDispatcher("erro.jsp").forward(request, response);	
+					request.getRequestDispatcher("erro.jsp").forward(request, response);
 				}
+				
 				break;
-		}		
+		}
+		
 	}
 
 	/**

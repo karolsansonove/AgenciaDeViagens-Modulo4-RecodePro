@@ -32,13 +32,12 @@ public class destinosEditarController extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		int id = Integer.parseInt(request.getParameter("id"));
-		DestinoDAO dao = new DestinoDAO();
 		Destino destino = new Destino();
 		
 		switch (action) {
 			case "get":
 				
-				destino = dao.readById(id);
+				destino = DestinoDAO.readById(id);
 				request.setAttribute("destino", destino);
 				
 				request.getRequestDispatcher("destinosUpdate.jsp").forward(request, response);
@@ -52,7 +51,7 @@ public class destinosEditarController extends HttpServlet {
 				destino.setPreco(request.getParameter("txtPreco"));
 				destino.setUrlImagem(request.getParameter("txtURL"));
 				
-				if (dao.update(destino)) {
+				if (DestinoDAO.update(destino)) {
 					request.getRequestDispatcher("sucesso.jsp").forward(request, response);
 				} else {
 					request.getRequestDispatcher("erro.jsp").forward(request, response);

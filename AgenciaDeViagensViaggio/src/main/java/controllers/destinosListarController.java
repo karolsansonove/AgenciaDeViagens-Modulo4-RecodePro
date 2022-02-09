@@ -1,7 +1,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,9 +32,7 @@ public class destinosListarController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		DestinoDAO destinoDAO = new DestinoDAO();
-		
-		List<Destino> destinos = destinoDAO.readAll();
+		List<Destino> destinos = DestinoDAO.readAll();
 		request.setAttribute("destinos", destinos);
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);

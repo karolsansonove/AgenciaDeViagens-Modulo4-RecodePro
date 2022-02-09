@@ -14,7 +14,7 @@
 	<section class="section-sucesso">
 		<div class="container sucesso-content">
 		 	<p class="mensagem">Realizado com sucesso!</p>
-		 	<a href="index.jsp">Voltar para o Início</a>
+		 	<a href="listardestinos">Voltar para o Início</a>
 		</div>
 	</section>
 </body>
