@@ -1,6 +1,9 @@
 package controllers;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +14,16 @@ import dao.DestinoDAO;
 import models.Destino;
 
 /**
- * Servlet implementation class destinosDetalheController
+ * Servlet implementation class destinosListarController
  */
-@WebServlet("/destinosReadController")
-public class destinosDetalheController extends HttpServlet {
+@WebServlet("/listardestinos")
+public class destinosListarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public destinosDetalheController() {
+    public destinosListarController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +32,14 @@ public class destinosDetalheController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		DestinoDAO destinoDAO = new DestinoDAO();
 		
-		int id = Integer.parseInt(request.getParameter("id"));
-		Destino destino = destinoDAO.readById(id);
+		List<Destino> destinos = destinoDAO.readAll();
+		request.setAttribute("destinos", destinos);
 		
-		request.setAttribute("destino", destino);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 		
-		request.getRequestDispatcher("destinosRead.jsp").forward(request, response);
 	}
 
 	/**

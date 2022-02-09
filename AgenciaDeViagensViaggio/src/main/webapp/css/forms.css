@@ -15,8 +15,7 @@ label {
 
 input, textarea, select {
 	outline: none;
-	background: rgb(22, 22, 22, 0.32);
-	text-shadow: 0px 0px 3px rgb(0, 0, 0, 1);
+	background-color: rgb(22, 22, 22, 0.32);
 	border: none;
 	border-radius: 3px;
 	padding: 8px;
@@ -55,6 +54,12 @@ textarea {
 	display: flex;
 	flex-direction: column;
 	margin: 15px;
+}
+
+.campo-required {
+	color: #ff3030;
+	text-shadow: 0px 0px 3px rgb(0, 0, 0, 0.4);
+	font-weight: normal;
 }
 
 .input {

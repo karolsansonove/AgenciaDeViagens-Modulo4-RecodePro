@@ -6,7 +6,7 @@ create table Destino (
 	id_destino integer primary key auto_increment,
     uf char(2) not null,
     cidade varchar(60) not null,
-    preco decimal(10,2) not null,
+    preco varchar(7) not null,
     url_imagem varchar(50) not null	
 );
 

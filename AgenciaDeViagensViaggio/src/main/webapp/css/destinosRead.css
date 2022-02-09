@@ -1,0 +1,74 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image: linear-gradient(to right, #2bffe3, #0093ff, #0065e0);
+}
+
+p {
+	color: #fff;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.45);
+}
+
+.section-destino {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+}
+
+.destino-content {
+	display: flex;
+	align-items: start;
+	padding: 30px 0px;
+}
+
+.destino-img {
+	max-width: 65%;
+	box-shadow: 0px 0px 5px #0000007d;
+}
+
+.box-detalhes {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	padding-left: 30px;
+	height: 50vh;
+}
+
+.msg {
+	font-size: 1em;
+	color: #fff;
+	background-color: green;
+	margin: 20px;
+}
+
+.local, .preco {
+	font-size: 2em;
+	margin-top: 30px;
+	font-weight: 600;
+}
+
+.preco-obs {
+	font-size: 0.9rem;
+}
+
+.box-acoes {
+	display: flex;
+	margin-top: 30px;
+}
+
+.btn-edit {
+	background-color: #253981;
+	margin-right: 20px;
+}
+
+.btn-remove {
+	background-color: #d40000;
+}
+
+.btn-edit:hover {
+	background-color: #2542a7;
+}
+
+.btn-remove:hover {
+	background-color: #ee0000;
+}

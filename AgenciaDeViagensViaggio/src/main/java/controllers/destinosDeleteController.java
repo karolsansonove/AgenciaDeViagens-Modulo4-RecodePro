@@ -8,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DestinoDAO;
-import models.Destino;
 
 /**
- * Servlet implementation class destinosDetalheController
+ * Servlet implementation class destinosDeleteController
  */
-@WebServlet("/destinosReadController")
-public class destinosDetalheController extends HttpServlet {
+@WebServlet("/removerdestino")
+public class destinosDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public destinosDetalheController() {
+    public destinosDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +28,24 @@ public class destinosDetalheController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DestinoDAO destinoDAO = new DestinoDAO();
 		
+		DestinoDAO dao = new DestinoDAO();
 		int id = Integer.parseInt(request.getParameter("id"));
-		Destino destino = destinoDAO.readById(id);
+		String action = request.getParameter("action");
 		
-		request.setAttribute("destino", destino);
-		
-		request.getRequestDispatcher("destinosRead.jsp").forward(request, response);
+		switch (action) {
+			case "confirm":
+				request.setAttribute("id", id);
+				request.getRequestDispatcher("confirmacao.jsp").forward(request, response);
+				break;
+			case "delete":
+				if (dao.delete(id)) {
+					request.getRequestDispatcher("sucesso.jsp").forward(request, response);			
+				} else {
+					request.getRequestDispatcher("erro.jsp").forward(request, response);	
+				}
+				break;
+		}		
 	}
 
 	/**

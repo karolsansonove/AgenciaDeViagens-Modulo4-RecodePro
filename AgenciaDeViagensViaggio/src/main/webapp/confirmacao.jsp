@@ -13,29 +13,21 @@
 </head>
 <body>
 	<% 
-		Destino d = (Destino) request.getAttribute("destino");
+		int id = (int) request.getAttribute("id");
 	%>
 	<%@ include file="header.jsp" %>
 	<section class="section-destino">
 		<section class="container">
 			<div class="destino-content">
-				<img class="destino-img" src="./img/cidades/<%= d.getUrlImagem() %>" alt="Imagem do local"/>
 				<div class="box-detalhes">
 					
-					<div class="legenda">
-						
-						<p class="local">
-							<%= d.getCidade() %> - <%= d.getUF() %>
-						</p>
-						<p class="preco">
-							R$ <%= d.getPreco() %>
-							<span class="preco-obs">por pessoa</span>
-						</p>
-					</div>
+					<p class="local">
+						Tem certeza que deseja remover o destino?
+					</p>
 					
 					<div class="box-acoes">
-						<a href="editardestino?action=get&id=<%= d.getId() %>" class="btn btn-edit">Editar</a>
-						<a href="removerdestino?action=confirm&id=<%= d.getId() %>" class="btn btn-remove">Remover</a>
+						<a href="destinosReadController?id=<%= id %>" class="btn btn-edit">Cancelar</a>
+						<a href="removerdestino?action=delete&id=<%= id %>" class="btn btn-remove">Confirmar</a>
 					</div>
 					
 				</div>

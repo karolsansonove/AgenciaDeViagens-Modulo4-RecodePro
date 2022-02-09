@@ -2,9 +2,9 @@ package models;
 
 public class Destino {
 	private int id;
-	private String estado;
 	private String cidade;
-	private double preco;
+	private String uf;
+	private String preco;
 	private String urlImagem;
 	
 	public int getId() {
@@ -13,11 +13,11 @@ public class Destino {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getEstado() {
-		return estado;
+	public String getUF() {
+		return uf;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setUF(String uf) {
+		this.uf = uf;
 	}
 	public String getCidade() {
 		return cidade;
@@ -25,10 +25,10 @@ public class Destino {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public double getPreco() {
+	public String getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setPreco(String preco) {
 		this.preco = preco;
 	}
 	public String getUrlImagem() {

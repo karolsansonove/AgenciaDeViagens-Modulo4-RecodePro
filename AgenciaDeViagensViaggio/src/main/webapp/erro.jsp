@@ -13,7 +13,8 @@
 	<%@ include file="header.jsp" %>
 	<section class="section-erro">
 		<div class="container erro-content">
-		 	<p class="mensagem">Erro! Não foi possível cadastrar usuário.</p>
+		 	<p class="mensagem">Erro! Não foi possível concluir.</p>
+		 	<p class="aviso">Verifique se você preencheu todos os campos.</p>
 		 	<a href="index.jsp">Voltar para o Início</a>
 		</div>
 	</section>

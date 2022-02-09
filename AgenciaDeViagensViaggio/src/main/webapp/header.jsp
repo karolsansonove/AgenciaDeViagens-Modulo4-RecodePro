@@ -4,22 +4,19 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Header</title>
-<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<title>Header</title>
+	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
 		<div class="header-content container">
-			<a class="logo" href="index.jsp">
-				<img class="logo-img" alt="Avião" src="./img/airplane.png">
+			<a class="logo" href="listardestinos">
 				<span>VIAGGIO</span>
 			</a>
 			<ul class="menu">
 				<li class="menu-item">
-					<a class="menu-item-link" href="index.jsp">Início</a>
-				</li>
-				<li class="menu-item">
-					<a class="menu-item-link" href="destinos.jsp">Destinos</a>
+					<a class="menu-item-link" href="listardestinos">Destinos</a>
 				</li>
 				<li class="menu-item">
 					<a class="menu-item-link" href="promocoes.jsp">Promoções</a>

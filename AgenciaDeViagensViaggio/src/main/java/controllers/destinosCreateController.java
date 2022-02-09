@@ -31,18 +31,19 @@ public class destinosCreateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Destino destino = new Destino();
-		destino.setEstado(request.getParameter("txtUF"));
+		destino.setUF(request.getParameter("txtUF"));
 		destino.setCidade(request.getParameter("txtCidade"));
-		destino.setPreco(Double.parseDouble(request.getParameter("txtPreco")));
+		destino.setPreco(request.getParameter("txtPreco"));
 		destino.setUrlImagem(request.getParameter("txtURL"));
 		
 		DestinoDAO destinoDAO = new DestinoDAO();
-		destinoDAO.create(destino);
 		
-		// request.setAttribute("destino", destino);
-		// request.getRequestDispatcher("destinosRead.jsp").forward(request, response);
+		if (destinoDAO.create(destino)) {
+			request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("erro.jsp").forward(request, response);
+		}		
 		
-		request.getRequestDispatcher("sucesso.jsp").forward(request, response);
 	}
 
 	/**

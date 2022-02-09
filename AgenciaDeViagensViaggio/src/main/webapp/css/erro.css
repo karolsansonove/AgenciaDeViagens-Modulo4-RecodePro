@@ -16,6 +16,10 @@
 	align-items: center;
 }
 
+.erro-content a {
+	margin-top: 50px;	
+}
+
 .mensagem {
 	font-size: 1.5em;
 	color: #fff;
@@ -26,6 +30,8 @@
 	text-align: center;
 }
 
-.erro-content a {
-	margin-top: 50px;	
+.aviso {
+	font-size: 0.9em;
+	color: rgb(231, 76, 60);
+	margin-top: 15px; 
 }

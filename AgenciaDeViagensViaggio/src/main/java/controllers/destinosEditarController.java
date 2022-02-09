@@ -11,16 +11,16 @@ import dao.DestinoDAO;
 import models.Destino;
 
 /**
- * Servlet implementation class destinosDetalheController
+ * Servlet implementation class destinosEditarController
  */
-@WebServlet("/destinosReadController")
-public class destinosDetalheController extends HttpServlet {
+@WebServlet("/editardestino")
+public class destinosEditarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public destinosDetalheController() {
+    public destinosEditarController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +29,38 @@ public class destinosDetalheController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DestinoDAO destinoDAO = new DestinoDAO();
 		
+		String action = request.getParameter("action");
 		int id = Integer.parseInt(request.getParameter("id"));
-		Destino destino = destinoDAO.readById(id);
+		DestinoDAO dao = new DestinoDAO();
+		Destino destino = new Destino();
 		
-		request.setAttribute("destino", destino);
+		switch (action) {
+			case "get":
+				
+				destino = dao.readById(id);
+				request.setAttribute("destino", destino);
+				
+				request.getRequestDispatcher("destinosUpdate.jsp").forward(request, response);
+				
+				break;
+			case "post":
+				
+				destino.setId(Integer.parseInt(request.getParameter("id")));
+				destino.setCidade(request.getParameter("txtCidade"));
+				destino.setUF(request.getParameter("txtUF"));
+				destino.setPreco(request.getParameter("txtPreco"));
+				destino.setUrlImagem(request.getParameter("txtURL"));
+				
+				if (dao.update(destino)) {
+					request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+				} else {
+					request.getRequestDispatcher("erro.jsp").forward(request, response);
+				}
+				
+				break;
+		}
 		
-		request.getRequestDispatcher("destinosRead.jsp").forward(request, response);
 	}
 
 	/**
