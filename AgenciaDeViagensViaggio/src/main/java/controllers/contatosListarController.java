@@ -1,26 +1,28 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PromocaoDAO;
-import models.Promocao;
+import dao.ContatoDAO;
+import models.Contato;
 
 /**
- * Servlet implementation class promocoesDetalheController
+ * Servlet implementation class contatosListarController
  */
-@WebServlet("/promocaodetalhes")
-public class promocoesDetalheController extends HttpServlet {
+@WebServlet("/listarcontatos")
+public class contatosListarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public promocoesDetalheController() {
+    public contatosListarController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,12 +31,10 @@ public class promocoesDetalheController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		Promocao promo = PromocaoDAO.readById(id);
+		List<Contato> contatos = ContatoDAO.readAll();
+		request.setAttribute("contatos", contatos);
 		
-		request.setAttribute("promo", promo);
-		
-		request.getRequestDispatcher("promocoesRead.jsp").forward(request, response);
+		request.getRequestDispatcher("contatosList.jsp").forward(request, response);
 	}
 
 	/**

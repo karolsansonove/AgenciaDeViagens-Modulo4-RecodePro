@@ -1,6 +1,6 @@
 @charset "UTF-8";
 h1 {
-	font-size: 2.5em;
+	font-size: 2em;
 	color: #fff;
 	text-shadow: 0px 0px 3px rgb(0, 0, 0, 1);	
 	margin-bottom: 20px;
@@ -73,20 +73,21 @@ textarea {
 
 .btn-form {
 	margin: 20px;
+	font-size: 0.85em;
 }
 
 .btn-form-enviar {
 	background: #253981;
 }
 
-.btn-form-limpar {
-	background: #535353;
+.btn-form-limpar, .btn-mensagens {
+	background: #858585;
 }
 
 .btn-form-enviar:hover {
 	background: #2542a7;
 }
 
-.btn-form-limpar:hover {
-	background: #636363;
+.btn-form-limpar:hover, .btn-mensagens:hover {
+	background: #757575;
 }

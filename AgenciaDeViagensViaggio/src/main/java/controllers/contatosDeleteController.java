@@ -7,20 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PromocaoDAO;
-import models.Promocao;
+import dao.ContatoDAO;
 
 /**
- * Servlet implementation class promocoesDetalheController
+ * Servlet implementation class contatosDeleteController
  */
-@WebServlet("/promocaodetalhes")
-public class promocoesDetalheController extends HttpServlet {
+@WebServlet("/removercontato")
+public class contatosDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public promocoesDetalheController() {
+    public contatosDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +29,21 @@ public class promocoesDetalheController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		Promocao promo = PromocaoDAO.readById(id);
+		String action = request.getParameter("action");
 		
-		request.setAttribute("promo", promo);
-		
-		request.getRequestDispatcher("promocoesRead.jsp").forward(request, response);
+		switch (action) {
+			case "confirm":
+				request.setAttribute("id", id);
+				request.getRequestDispatcher("contatoConfirmarDelete.jsp").forward(request, response);
+				break;
+			case "delete":
+				if (ContatoDAO.delete(id)) {
+					request.getRequestDispatcher("sucesso.jsp").forward(request, response);			
+				} else {
+					request.getRequestDispatcher("erro.jsp").forward(request, response);	
+				}
+				break;
+		}		
 	}
 
 	/**

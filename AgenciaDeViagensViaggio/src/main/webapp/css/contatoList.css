@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+.contato-item {
+	display: flex;
+	width: 100%;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 1px 0px #000;
+}
+
+.contato-item span {
+	display: flex;
+	flex-grow: 1;
+	color: #535353;
+	margin-right: 20px;
+}
+
+.contato-item:hover {
+	background-color: #e2e2e2;
+	box-shadow: 0px 0px 4px 1px rgb(0, 0, 0, 0.44);
+}

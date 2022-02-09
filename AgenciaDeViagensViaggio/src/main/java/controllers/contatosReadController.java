@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PromocaoDAO;
-import models.Promocao;
+import dao.ContatoDAO;
+import models.Contato;
 
 /**
- * Servlet implementation class promocoesDetalheController
+ * Servlet implementation class contatosReadController
  */
-@WebServlet("/promocaodetalhes")
-public class promocoesDetalheController extends HttpServlet {
+@WebServlet("/vercontato")
+public class contatosReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public promocoesDetalheController() {
+    public contatosReadController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +30,10 @@ public class promocoesDetalheController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		Promocao promo = PromocaoDAO.readById(id);
+		Contato contato = ContatoDAO.readById(id);
+		request.setAttribute("contato", contato);
 		
-		request.setAttribute("promo", promo);
-		
-		request.getRequestDispatcher("promocoesRead.jsp").forward(request, response);
+		request.getRequestDispatcher("contatoRead.jsp").forward(request, response);
 	}
 
 	/**
